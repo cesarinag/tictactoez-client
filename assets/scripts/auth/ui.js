@@ -48,11 +48,24 @@ const signOutFailure = function (error) {
 }
 
 
+// change password success .then function
+const changePasswordSuccess = function (response) {
+  $('#message').text('Yo you cheeze me dawg, you dont even link nobody no more')
+  $('form').trigger('reset')
+}
+
+// change password failure .catch function
+const changePasswordFailure = function (response) {
+  $('#message').text('It no work compadre ' + error.responseJSON.message)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  changePasswordSuccess,
+  changePasswordFailure
 }

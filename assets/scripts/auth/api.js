@@ -31,11 +31,24 @@ const signOut = function (formData) {
     }
   })
 }
+
+// changepasword function
+const changePassword = function (formData) {
+  return $.ajax({
+    url: config.apiUrl + '/change-password',
+    method: 'PATCH',
+    data: formData,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
  // ajax will always make requests
 // gonna return promise and handle it with .then and .catch
 
 module.exports = {
   signUp,
   signIn,
-  signOut
+  signOut,
+  changePassword
 }
