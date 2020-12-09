@@ -50,8 +50,10 @@ const signOutFailure = function (error) {
 
 // change password success .then function
 const changePasswordSuccess = function (response) {
-  $('#message').text('Yo you cheeze me dawg, you dont even link nobody no more')
+  $('#message').text('You changed up on me dawg')
   $('form').trigger('reset')
+  $('.thebayang').show()
+$('.notthebayang').hide()
 }
 
 // change password failure .catch function
