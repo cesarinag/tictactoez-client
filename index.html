@@ -21,19 +21,29 @@
 <!-- unauthenticated elements -->
 <div class="notthebayang">
   <!-- user sign up -->
-  <form id="sign-up">
-    <input type="text" name="credentials[email]" placeholder="Please enter your email"/>
-    <input type="password" name="credentials[password]" placeholder="Please enter password" />
-    <input type="password" name="credentials[password_confirmation]" placeholder="Please confirm password" />
-  <button type="submit">Sign Up</button>
-  </form>
-  <!-- user sign in -->
-  <form>
-</div>
+<form id="sign-up">
+<input type="text" name="credentials[email]" placeholder="Please enter your email"/>
+<input type="password" name="credentials[password]" placeholder="Please enter password" />
+<input type="password" name="credentials[password_confirmation]" placeholder="Please confirm password" />
+<button type="submit">Sign Up</button>
 </form>
+<!-- user sign in -->
+<form id="sign-in">
+<input type="text" name="credentials[email]" placeholder="Please enter email"/>
+<input type="password" name="credentials[password]" placeholder="Please enter password here"/>
+<button type="submit">Sign In</button>
+</form>
+</div>
 <!-- authenticated elements -->
 <div class="thebayang">
-<!--  -->
+  <!-- change user password -->
+<form id="change-password">
+<input type="password" name="passwords[old]" placeholder="old password" />
+<input type="password" name="passwords[new]" placeholder="new password" />
+<button type="submit">Keep 'Em Guessing'</button>
+</form>
+<!-- user sign out -->
+<button id="sign-out" type="button" name="button">Sign Out</button>
 </div>
 </body>
 </html>
