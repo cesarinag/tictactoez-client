@@ -19,16 +19,17 @@ $('.notthebayang').hide()
 $('.container').show()
 
 }
-
 // create game failure function
 const createGameFailure = function (error) {
   $('#message').text('No game for u ' + error.responseJSON.message)
 }
 
 
+
 // boardclick success function
 const boardClickSuccess = function(response) {
   store.game = response.game
+  $('#message').text('Ya clicked it')
 }
 // we dont need an error functionnnnnnnnnnnnnnnnnnn
 

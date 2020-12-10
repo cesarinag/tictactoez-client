@@ -42,10 +42,9 @@ if (value === '') {
  // update API
  api.boardClick(cellIndex, playerSpot)
  .then(ui.boardClickSuccess)
- .catch(ui.boardClickFailure)
  // else space is taken
 } else {
- console.log('Not there plegihboi')
+ $('#message').text('Spot taken pleighboi')
 }
 }
 
