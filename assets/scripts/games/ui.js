@@ -26,8 +26,15 @@ const createGameFailure = function (error) {
 }
 
 
+// boardclick success function
+const boardClickSuccess = function(response) {
+  store.game = response.game
+}
+// we dont need an error functionnnnnnnnnnnnnnnnnnn
+
 
 module.exports = {
   createGameSuccess,
-  createGameFailure
+  createGameFailure,
+  boardClickSuccess,
 }

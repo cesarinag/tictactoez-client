@@ -34,6 +34,7 @@ const signInFailure = function (error) {
 // signout success .then function
 const signOutSuccess = function () {
   $('#message').text('Signed out successfully!')
+  $('.container').hide()
 $('.notthebayang').show()
   $('.thebayang').hide()
 // VERY IMMPORTANT

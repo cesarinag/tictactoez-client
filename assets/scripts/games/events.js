@@ -1,8 +1,13 @@
+'use strict'
+
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('./../../../lib/get-form-fields')
+const store = require('./../store')
 
 
+
+// create game function
 const onCreateGame = function (event) {
   event.preventDefault()
 api.createGame()
@@ -13,9 +18,41 @@ api.createGame()
   .catch(ui.createGameFailure)
 }
 
+
+
+// const player global variable
 const playerSpot = 'X'
+
+
+
+// player clicks the board function
+const onBoardClick = function (event) {
+  // console.log('did u do the thing?')
+// event target refers to the click on the baord, and which div's index
+const cellIndex = $(event.target).data('cell-index')
+// gets the array of cells from inside game comes from api
+// console.log(cellIndex)
+const gameArray = store.game.cells
+// value in the specific position of game board
+const value = gameArray[cellIndex]
+// if space is empty
+if (value === '') {
+   // add player to board
+   $(event.target).html(playerSpot)
+ // update API
+ api.boardClick(cellIndex, playerSpot)
+ .then(ui.boardClickSuccess)
+ .catch(ui.boardClickFailure)
+ // else space is taken
+} else {
+ console.log('Not there plegihboi')
+}
+}
+
+
 
 module.exports = {
   onCreateGame,
-  playerSpot
+  playerSpot,
+  onBoardClick
 }

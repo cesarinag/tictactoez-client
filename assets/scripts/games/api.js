@@ -16,8 +16,27 @@ const createGame = function (data) {
   })
 }
 
+const boardClick = function (cellIndex, playerSpot) {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game._id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      game: {
+        cell: {
+          index: cellIndex,
+          value: playerSpot
+        },
+        over: false
+      }
+    }
+  })
+}
 
 
 module.exports = {
-  createGame
+  createGame,
+  boardClick
 }
