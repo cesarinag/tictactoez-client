@@ -19,7 +19,7 @@ const signInSuccess = function (response) {
   // console.log(store)
 
   store.user = response.user
-  console.log(store)
+  // console.log(store)
 
   $('.notthebayang').hide()
   $('.thebayang').show()
@@ -32,10 +32,10 @@ const signInFailure = function (error) {
 }
 
 // signout success .then function
-const signOutSuccess = function (response) {
+const signOutSuccess = function () {
   $('#message').text('Signed out successfully!')
-  $('.thebayang').show()
-$('.notthebayang').hide()
+$('.notthebayang').show()
+  $('.thebayang').hide()
 // VERY IMMPORTANT
 store.user = null
 // reset form on any successful action:

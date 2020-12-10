@@ -7,13 +7,15 @@ const onCreateGame = function (event) {
   event.preventDefault()
 api.createGame()
   .then(function (response) {
-    console.log(response)
     return response
   })
     .then(ui.createGameSuccess)
   .catch(ui.createGameFailure)
 }
 
+const playerSpot = 'X'
+
 module.exports = {
-  onCreateGame: onCreateGame,
+  onCreateGame,
+  playerSpot
 }

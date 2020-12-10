@@ -11,12 +11,11 @@ const gameEvents = require('./games/events')
 
 $(() => {
   $('.thebayang').hide()
-  // $('.game-display').hide()
-  // $('#game-create').hide()
+  $('.container').hide()
   // user sign-up listener
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#sign-out').on('click', authEvents.onSignOut)
   $('#change-password').on('submit', authEvents.onChangePassword)
-  $('#game-create').on('submit', gameEvents.onCreateGame)
+  $('#start-new-game').on('click', gameEvents.onCreateGame)
 })
