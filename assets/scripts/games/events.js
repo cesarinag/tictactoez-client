@@ -20,10 +20,6 @@ api.createGame()
 
 
 
-// const player global variable
-const playerSpot = 'X'
-
-
 
 // player clicks the board function
 const onBoardClick = function (event) {
@@ -37,16 +33,55 @@ const gameArray = store.game.cells
 const value = gameArray[cellIndex]
 // if space is empty
 if (value === '') {
+
    // add player to board
    $(event.target).html(playerSpot)
- // update API
- api.boardClick(cellIndex, playerSpot)
- .then(ui.boardClickSuccess)
- // else space is taken
+
+   // update API
+   api.boardClick(cellIndex, playerSpot)
+     .then(ui.boardClickSuccess)
+
+   // change turn
+   if (playerSpot === 'X') {
+     playerSpot = 'O'
+   } else {
+     playerSpot = 'X'
+   }
+
+// else space is taken
 } else {
- $('#message').text('Spot taken pleighboi')
+  $('#message').text('Spot taken pleighboi')
 }
 }
+
+
+// if space is empty
+// if (value === '') {
+//
+//    // add player to board
+//    $(event.target).html(playerSpot)
+//
+//    // update API
+//    api.boardClick(cellIndex, playerSpot)
+//      .then(ui.boardClickSuccess)
+//
+//    // change turn
+//    if (playerSpot === 'X') {
+//      playerSpot = 'O'
+//    } else {
+//      playerSpot = 'X'
+//    }
+//
+// // else space is taken
+// } else {
+//   $('#message').text('Spot taken pleighboi')
+// }
+
+
+
+// const player global variable
+let playerSpot = 'X'
+
 
 
 

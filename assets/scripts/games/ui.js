@@ -8,6 +8,7 @@ const store = require('./../store')
 const createGameSuccess = function (response) {
 // console.log(response.game)
 $('.thebayang').show()
+ $('#change-password').hide()
 $('form').trigger('reset')
 $('#message').text('Game Created!')
 
@@ -29,6 +30,8 @@ const createGameFailure = function (error) {
 // boardclick success function
 const boardClickSuccess = function(response) {
   store.game = response.game
+  const gameObject = store.game
+  console.log(gameObject)
   $('#message').text('Ya clicked it')
 }
 // we dont need an error functionnnnnnnnnnnnnnnnnnn
@@ -37,5 +40,5 @@ const boardClickSuccess = function(response) {
 module.exports = {
   createGameSuccess,
   createGameFailure,
-  boardClickSuccess,
+  boardClickSuccess
 }
