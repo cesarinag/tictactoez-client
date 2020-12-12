@@ -26,11 +26,10 @@ const createGameFailure = function (error) {
 }
 
 
-
 // boardclick success function
 const boardClickSuccess = function(response) {
   store.game = response.game
-  const gameObject = store.game
+  const gameObject = store.game.cells
   console.log(gameObject)
   $('#message').text('Ya clicked it')
 }
