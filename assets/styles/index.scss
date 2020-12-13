@@ -1,7 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+
 
 body {
   background-color: #123456;
+
 }
 
 p {
@@ -9,13 +12,20 @@ p {
 }
 h1 {
   color: #654321;
+  font-family: 'Monoton', cursive;
 }
 
 .box {
   display:flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   border: 1px solid white;
   height: 150px;
   color: white;
+}
+
+.notthebayang {
+  display: flex;
+  flex-flow: column-nowrap;
+  justify-content: space-evenly;
 }

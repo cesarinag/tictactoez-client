@@ -16,7 +16,7 @@ const createGame = function (data) {
   })
 }
 
-const boardClick = function (cellIndex, playerSpot) {
+const boardClick = function (cellIndex, playerSpot, over) {
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game._id,
     method: 'PATCH',

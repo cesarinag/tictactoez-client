@@ -4,11 +4,22 @@ const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('./../../../lib/get-form-fields')
 const store = require('./../store')
-
-
-
+const winCombinations =
+[
+[0, 1, 2],
+[3, 4, 5],
+[6, 7, 8],
+[0, 3, 6],
+[1, 4, 7],
+[2, 5, 8],
+[6, 4, 2],
+[8, 4, 0]
+]
 // const player global variable
 let playerSpot = 'X'
+// const areWeThereYet = store.game.over
+let board = '.box'
+
 
 // create game function
 const onCreateGame = function (event) {
@@ -22,6 +33,9 @@ api.createGame()
 }
 
 
+
+
+
 // player clicks the board function
 const onBoardClick = function (event) {
   // console.log('did u do the thing?')
@@ -32,6 +46,7 @@ const cellIndex = $(event.target).data('cell-index')
 const gameArray = store.game.cells
 // value in the specific position of game board
 const value = gameArray[cellIndex]
+
 // if space is empty
 if (value === '') {
 
@@ -41,8 +56,6 @@ $(event.target).html(playerSpot)
 // update API
 api.boardClick(cellIndex, playerSpot)
  .then(ui.boardClickSuccess)
-
-// checkWinner() should be here
 
 // change turn
 if (playerSpot === 'X') {
@@ -54,9 +67,77 @@ if (playerSpot === 'X') {
 } else {
 $('#message').text('Spot taken pleighboi')
 // $('#message').text(playerSpot + '\'s turn')
-// runs checkwinner
+let gameWon = checkWin(board, playerSpot)
+	if (gameWon) gameOver(gameWon);
 }
 }
+
+
+
+
+// game array behind logic
+const checkWin = function (winCombinations) {
+  const somebodyHome = (playerSpot) => playerSpot !== ''
+  const gameArray = store.game.cells
+  playerSpot = playerSpot === 'X' ? 'O' : 'X'
+  // Row 1 Win: if square [0] is equal to square [1] and square [2]
+  if (gameArray[0] !== '' && gameArray[0] === gameArray[1] && gameArray[0] === gameArray[2]) {
+    console.log('Row 1 Win!')
+    $('#message').text('You Win!')
+    store.game.over = true
+    // Row 2 Win: if square [3] is equal to square [4] and square [5]
+  } else if (gameArray[3] !== '' && gameArray[3] === gameArray[4] && gameArray[5]) {
+    console.log('Row 2 Win!')
+    $('#message').text('You Win!')
+    store.game.over = true
+    // Row 3 Win: if square [6] is equal to square [7] and square [8]
+  } else if (gameArray[6] !== '' && gameArray[6] === gameArray[7] && gameArray[6] === gameArray[8]) {
+    console.log('Row 3 Win!')
+    $('#message').text('You Win!')
+    store.game.over = true
+    // Column 1 Win: if square [0] is equal to square [3] and square [6]
+  } else if (gameArray[0] !== '' && gameArray[0] === gameArray[3] && gameArray[0] === gameArray[6]) {
+    console.log('Column 1 Win!')
+    $('#message').text('You Win!')
+    store.game.over = true
+    // Column 2 Win: if square [1] is equal to square [4] and square [7]
+  } else if (gameArray[1] !== '' && gameArray[1] === gameArray[4] && gameArray[1] === gameArray[7]) {
+    console.log('Column 2 Win!')
+    $('#message').text('You Win!')
+    store.game.over = true
+    // Column 3 Win: if square [2] is equal to square [5] and square [8]
+  } else if (gameArray[2] !== '' && gameArray[2] === gameArray[5] && gameArray[2] === gameArray[8]) {
+    console.log('Column 3 Win!')
+    $('#message').text('You Win!')
+    store.game.over = true
+    // Diagonal Top-Left to Bottom-Right Win (or visa versa): if square [0] is equal to square [4] and square [8]
+  } else if (gameArray[0] !== '' && gameArray[0] === gameArray[4] && gameArray[0] === gameArray[8]) {
+    console.log('Diagonal Win!')
+    $('#message').text('You Win!')
+    store.game.over = true
+    // Diagonal Top-Right to Bottom-Left Win (or visa-versa): if square [2] is equal to square [4] and square [6]
+  } else if (gameArray[2] !== '' && gameArray[2] === gameArray[4] && gameArray[2] === gameArray[6]) {
+    console.log('Diagonal Win!')
+    $('#message').text('You Win!')
+    store.game.over = true
+  // if none of these conditions are met
+} else if (gameArray.every(somebodyHome) === true) {
+    store.game.over = true
+    $('#message').text('It is a tie!')
+    console.log('TIE!')
+    for (x = 0; x < gameArray.length; x++) {
+      for (o = 0; o < gameArray.length; o++) {
+        if (gameArray[x][o] === '') {
+          return false
+        }
+      }
+      return true
+    }
+  }
+}
+
+
+
 
 
 
@@ -74,59 +155,8 @@ $('#message').text('Spot taken pleighboi')
 
 
 
-// checkwinner function logic
-const checkWinner = function (gameArray) {
-  const somebodyHome = (playerSpot) => playerSpot !== ''
-  //  by default is false in api
-  let victory = store.game.over
-  // horizontal 1
-if (gameArray[0] !== '' && gameArray[0] === gameArray[1] && gameArray[0] === gameArray[2]){
-  console.log('im 23 with a money tree')
-  $('#message').text('growing more too, i just planted 100 seeds')
-  // lmk wassup is it real jk this is for the game.over reset
-  victory = true
-  // horizontal 2
-} else if (gameArray[3] !== '' && gameArray[3] === gameArray[4] && gameArray[3] === gameArray[5]){
-  console.log('im not saying im the nicest')
-  $('#message').text('i just live life like it')
-  victory = true
-  // horizontal 3
-} else if (gameArray[6] !== '' && gameArray[6] === gameArray[7] && gameArray[6] === gameArray[8]){
-  console.log('how a bottle wine')
-  $('#message').text('become a fountain of youth')
-  victory = true
-  // vertical 1
-} else if (gameArray[0] !== '' && gameArray[0] === gameArray[3] && gameArray[0] === gameArray[6]){
-  console.log('its foggy where i live')
-$('#message').text('and they wonder why im choosy')
-victory = true
-// vertical 2
-} else if (gameArray[1] !== '' && gameArray[1] === gameArray[4] && gameArray[1] === gameArray[7]){
-  console.log('made a crazy ass play today')
-  $('#message').text('im killin it')
-victory = true
-// vertical 3
-} else if (gameArray[2] !== '' && gameArray[2] === gameArray[5] && gameArray[2] === gameArray[8]){
-  console.log('dont check me')
-  $('#message').text('check the air quality')
-  victory = true
-  // diagonal 1
-} else if (gameArray[0] !== '' && gameArray[0] === gameArray[4] && gameArray[0] === gameArray[8]){
-  console.log('91919191919191')
-  $('#message').text('numberssss')
-  victory = true
-  // diagonal 2
-} else if (gameArray[2] !== '' && gameArray[2] === gameArray[4] && gameArray[2] === gameArray[6]){
-  console.log('rap dont work push bass like the 80s')
-$('#message').text('when dis come on the real ps go crazy')
-victory = true
-} else if (gameArray.every(somebodyHome) === true) {
-  victory = true
-  $('#message').html('you tied bruv')
-  console.log('TIE')
-}
-return victory
-}
+
+
 
 
 
@@ -134,5 +164,6 @@ module.exports = {
   onCreateGame,
   playerSpot,
   onBoardClick,
-  checkWinner
+  // checkWinner,
+  // checkWin
 }
