@@ -31,7 +31,7 @@ const boardClickSuccess = function(response) {
   store.game = response.game
   const gameObject = store.game.cells
   console.log(gameObject)
-  $('#message').text('Ya clicked it')
+  // $('#message').text('Ya clicked it')
 }
 // we dont need an error functionnnnnnnnnnnnnnnnnnn
 

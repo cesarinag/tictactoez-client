@@ -70,6 +70,16 @@ $('#message').text('Spot taken pleighboi')
 let gameWon = checkWin(board, playerSpot)
 	if (gameWon) gameOver(gameWon);
 }
+function gameOver(gameWon) {
+ for (let i = 0; i < gameArray.length; i++) {
+   gameArray[i].removeEventListener('click', onBoardClick, false);
+ }
+}
+if (store.value === store.playerSpot) {
+    $('#message').text("Your turn...yeah you")
+} else if (store.playerSpot === store.value) {
+    $('#message').text("Not your turn...nah yeah")
+}
 }
 
 
@@ -83,47 +93,47 @@ const checkWin = function (winCombinations) {
   // Row 1 Win: if square [0] is equal to square [1] and square [2]
   if (gameArray[0] !== '' && gameArray[0] === gameArray[1] && gameArray[0] === gameArray[2]) {
     console.log('Row 1 Win!')
-    $('#message').text('You Win!')
+    $('#message').text('i avoided the coke game and went with sprite instead')
     store.game.over = true
     // Row 2 Win: if square [3] is equal to square [4] and square [5]
   } else if (gameArray[3] !== '' && gameArray[3] === gameArray[4] && gameArray[5]) {
     console.log('Row 2 Win!')
-    $('#message').text('You Win!')
+    $('#message').text('just like you said')
     store.game.over = true
     // Row 3 Win: if square [6] is equal to square [7] and square [8]
   } else if (gameArray[6] !== '' && gameArray[6] === gameArray[7] && gameArray[6] === gameArray[8]) {
     console.log('Row 3 Win!')
-    $('#message').text('You Win!')
+    $('#message').text('its happening penny lane ')
     store.game.over = true
     // Column 1 Win: if square [0] is equal to square [3] and square [6]
   } else if (gameArray[0] !== '' && gameArray[0] === gameArray[3] && gameArray[0] === gameArray[6]) {
     console.log('Column 1 Win!')
-    $('#message').text('You Win!')
+    $('#message').text('and now my garden is enormous')
     store.game.over = true
     // Column 2 Win: if square [1] is equal to square [4] and square [7]
   } else if (gameArray[1] !== '' && gameArray[1] === gameArray[4] && gameArray[1] === gameArray[7]) {
     console.log('Column 2 Win!')
-    $('#message').text('You Win!')
+    $('#message').text('and thats how she met my pops')
     store.game.over = true
     // Column 3 Win: if square [2] is equal to square [5] and square [8]
   } else if (gameArray[2] !== '' && gameArray[2] === gameArray[5] && gameArray[2] === gameArray[8]) {
     console.log('Column 3 Win!')
-    $('#message').text('You Win!')
+    $('#message').text('its ironic cause my mother was a florist')
     store.game.over = true
     // Diagonal Top-Left to Bottom-Right Win (or visa versa): if square [0] is equal to square [4] and square [8]
   } else if (gameArray[0] !== '' && gameArray[0] === gameArray[4] && gameArray[0] === gameArray[8]) {
     console.log('Diagonal Win!')
-    $('#message').text('You Win!')
+    $('#message').text('23 with a money tree')
     store.game.over = true
     // Diagonal Top-Right to Bottom-Left Win (or visa-versa): if square [2] is equal to square [4] and square [6]
   } else if (gameArray[2] !== '' && gameArray[2] === gameArray[4] && gameArray[2] === gameArray[6]) {
     console.log('Diagonal Win!')
-    $('#message').text('You Win!')
+    $('#message').text('growing more too')
     store.game.over = true
   // if none of these conditions are met
 } else if (gameArray.every(somebodyHome) === true) {
     store.game.over = true
-    $('#message').text('It is a tie!')
+    $('#message').text('i just planted 100 seeds')
     console.log('TIE!')
     for (x = 0; x < gameArray.length; x++) {
       for (o = 0; o < gameArray.length; o++) {
@@ -133,24 +143,23 @@ const checkWin = function (winCombinations) {
       }
       return true
     }
+    api.boardClick(cellIndex, playerSpot)
+     .then(ui.boardClickSuccess)
   }
 }
 
 
-
-
-
-
-
 // clear the boardddd
-// $('.box').text('')
+$('.box').text('')
+
+
 
 // display turn (rephrase logic bc no player2)
-      // if (store.Player === store.player1) {
-      //     $('#gameMessage').text("It is now: player1's turn")
-      // } else if (store.currentPlayer === store.player2) {
-      //     $('#gameMessage').text("It is now: player2's turn")
-      // }
+//       if (store.value === store.playerSpot) {
+//           $('#message').text("Your turn...yeah you")
+//       } else if (store.playerSpot === store.value) {
+//           $('#message').text("Not your turn...nah yeah")
+//       }
 
 
 
