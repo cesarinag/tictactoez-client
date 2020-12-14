@@ -1,55 +1,63 @@
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital@1&display=swap');
+
 
 
 
 
 body {
-  // background-color: #20639b;
-  background: #649173;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #DBD5A4, #649173);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #DBD5A4, #649173); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+// background-color: #20639b;
+background: #649173;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #DBD5A4, #649173);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #DBD5A4, #649173); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+font-family: 'Space Mono', monospace;
 
 }
 
 .box {
-  display:flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  border: 1px solid white;
-  height: 150px;
-  color: white;
-  background: #1e130c;  /* fallback for old browsers */
+display:flex;
+flex-direction: column-reverse;
+align-items: center;
+border: 1px solid white;
+height: 150px;
+color: white;
+background: #1e130c;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #9a8478, #1e130c);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #9a8478, #1e130c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-radius: 40px;
+border-radius: 40px;
 font-size: 100px;
 }
 
 button {
-  border-radius: 20px;
-  background: #DAD299;  /* fallback for old browsers */
+border-radius: 20px;
+background: #DAD299;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #B0DAB9, #DAD299);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #B0DAB9, #DAD299); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .container {
-  border-radius: 20px;
+border-radius: 20px;
 }
 
 h1 {
-  color: #654321;
-  font-family: 'Space Mono', monospace;
-  text-align: center;
+color: #654321;
+font-family: 'Space Mono', monospace;
+text-align: center;
 
 }
 
 .notthebayang {
-  display: flex;
-  flex-flow: column-nowrap;
-  justify-content: space-evenly;
+display: flex;
+flex-flow: column-nowrap;
+justify-content: space-evenly;
+}
+
+#message {
+// font-family: 'Space Mono', monospace;
+
 }
 
 p {
-  color: #654321
+color: #654321
 }
