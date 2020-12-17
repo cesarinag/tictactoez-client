@@ -23,6 +23,7 @@ const onSignIn = function (event) {
 
   const form = event.target
   const data = getFormFields(form)
+  // $('.thebayang').show()
 
   api.signIn(data)
   .then(ui.signInSuccess)

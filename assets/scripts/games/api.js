@@ -35,8 +35,28 @@ const boardClick = function (cellIndex, playerSpot, over) {
   })
 }
 
+const gameOver = function (cellIndex, playerSpot, over) {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game._id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      game: {
+        cell: {
+          index: 0,
+          value: 'x'
+        },
+        over: true
+      }
+    }
+  })
+}
+
 
 module.exports = {
   createGame,
-  boardClick
+  boardClick,
+  gameOver
 }
