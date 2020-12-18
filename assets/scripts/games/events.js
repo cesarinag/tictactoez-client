@@ -169,8 +169,6 @@ $('#message').text('spot taken pleighboi')
 
 
 
-
-
 //  gameOver function receives gameWon function
 const gameOver = function (gameWon) {
   // clear the board
@@ -188,7 +186,15 @@ const gameOver = function (gameWon) {
 
 
 
-
+const onGetGames = function (event) {
+  event.preventDefault()
+  // $('#message').text('You have played ' instert logic for games played here)
+  // something here for the get games button functionality
+// console.log('running the index')
+  api.getGamesIndex()
+  .then(ui.getGamesIndexSuccess)
+  .catch(ui.getGamesIndexSuccess)
+}
 
 
 
@@ -203,5 +209,6 @@ module.exports = {
   playerSpot,
   onBoardClick,
   checkWin,
-  gameOver
+  gameOver,
+  onGetGames
 }

@@ -55,8 +55,21 @@ const gameOver = function (cellIndex, playerSpot, over) {
 }
 
 
+
+
+const getGamesIndex = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createGame,
   boardClick,
-  gameOver
+  gameOver,
+  getGamesIndex
 }

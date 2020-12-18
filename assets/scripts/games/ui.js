@@ -53,9 +53,25 @@ const gameOverFailure = function(response) {
   $('#message').text('error ' + error.JSON.message)
 }
 
+// game index success
+const getGamesIndexSuccess = function(response) {
+  // store.game = response.game
+  const oranges = response.games.length
+  $('#message').text('you really played ' + oranges + ' games, bro')
+  // console.log(response)
+}
+
+// game index failure
+const getGamesIndexFailure = function (data) {
+  $('#message').text('error ' + error.JSON.message)
+}
+
+
 module.exports = {
   createGameSuccess,
   createGameFailure,
   boardClickSuccess,
-  boardClickFailure
+  boardClickFailure,
+  getGamesIndexSuccess,
+  getGamesIndexFailure
 }
