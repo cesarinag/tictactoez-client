@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TicTacToez Game Project</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Do not add `link` tags-->
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+<!-- Do not add `script` tags-->
+<script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+<h1>Cesi's  Tic Tac Toez</h1>
+
+
+<p id="message"></p>
+
+<!-- unauthenticated elements -->
+<div class="notthebayang">
+  <!-- user sign up -->
+<form id="sign-up">
+<input type="text" name="credentials[email]" placeholder="Please enter your email"/>
+<input type="password" name="credentials[password]" placeholder="Please enter password" />
+<input type="password" name="credentials[password_confirmation]" placeholder="Please confirm password" />
+<button type="submit">Sign Up</button>
+</form>
+<!-- user sign in -->
+<form id="sign-in">
+<input type="text" name="credentials[email]" placeholder="Please enter email"/>
+<input type="password" name="credentials[password]" placeholder="Please enter password here"/>
+<button type="submit">Sign In</button>
+</form>
+</div>
+<!-- authenticated elements -->
+<div class="thebayang">
+  <!-- change user password -->
+<form id="change-password">
+<input type="password" name="passwords[old]" placeholder="old password" />
+<input type="password" name="passwords[new]" placeholder="new password" />
+<button type="submit">Word is bond</button>
+</form>
+<!-- user sign out -->
+<button id="sign-out">Sign Out</button>
+<!-- display games  -->
+<div class="game-display"></div>
+<!-- game create  -->
+<button id="start-new-game" type="button">Square up, bro</button>
+<!-- get all games button -->
+<button id="get-games" type="button">check me out</button>
+</div>
+<!-- this is the board game -->
+<form class="container">
+<div class="row">
+<div class="col-4 box" data-cell-index='0'></div>
+<div class="col-4 box" data-cell-index='1'></div>
+<div class="col-4 box" data-cell-index='2'></div>
+<div class="col-4 box" data-cell-index='3'></div>
+<div class="col-4 box" data-cell-index='4'></div>
+<div class="col-4 box" data-cell-index='5'></div>
+<div class="col-4 box" data-cell-index='6'></div>
+<div class="col-4 box" data-cell-index='7'></div>
+<div class="col-4 box" data-cell-index='8'></div>
+</div>
+</form>
+</body>
+</html>
