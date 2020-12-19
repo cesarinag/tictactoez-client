@@ -5,11 +5,12 @@
 (https://cesarinag.github.io/tictactoez-client/ "Deployed Site")
 (https://git.generalassemb.ly/ga-wdi-boston/game-project-api "Game-Project API")
 
-## My initial planning going into this project was centered around staying as organized as possible and I think for the most part, I was able to remain organized - though not as DRY as I'd like. Very grateful that the instructors emphasized the benefit of module exports because I was able to complete this project in a similar fashion. The curl scripts are separated by the different controllers; user authorization events had their own folder and the game events had their own folders.
+## Planning:
+#### My initial planning going into this project was centered around staying as organized as possible and I think for the most part, I was able to remain organized - though not as DRY as I'd like. Very grateful that the instructors emphasized the benefit of module exports because I was able to complete this project in a similar fashion. The curl scripts are separated by the different controllers; user authorization events had their own folder and the game events had their own folders.
 
 ## Demo Preview:
-![demo screenshot](https://imgur.com/KrWzcPf)
-![second demo screenshot](https://imgur.com/q7C9XEN)
+![demo screenshot](./pictures/demo1.png)
+![second demo screenshot](./pictures/demo2.png)
 
 
 ## User Stories:
@@ -39,5 +40,5 @@
 * I'd like to add mobile functionality
 
 ## Wireframes:
-![initial wireframe for tic-tac-toe game](https://imgur.com/7iKCIy0)
-![initial wireframe for mobile version of tic-tac-toe game](https://imgur.com/5csTWuI)
+![initial wireframe for tic-tac-toe game](./pictures/project1-ga-wireframe.jpg)
+![initial wireframe for mobile version of tic-tac-toe game](./pictures/project1-ga-wireframe_mobile.jpg)
